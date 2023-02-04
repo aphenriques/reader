@@ -1,6 +1,6 @@
 # file
 
-`file` is a C++ library for reading plain and bzip2 (using libbz2) file data.
+`file` is a C++ library for reading plain and bzip2 file data (using libbz2).
 
 
 # Requirements
@@ -14,6 +14,7 @@
 Grab the `dependecies/exception/include/exception` directory and all the source files (*.hpp and *.cpp) in the `lib/file` directory and build (there is no preprocessor configuration for the library).
 
 Alternatively, build and install the library with:
+
     $ make
     $ make install
 
