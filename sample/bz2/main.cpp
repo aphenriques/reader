@@ -1,11 +1,11 @@
 #include <exception>
 #include <iostream>
-#include <file/file.hpp>
+#include <reader/reader.hpp>
 
 int main() {
     try {
-        file::Data plainData = file::read("Matthew-5.txt");
-        file::Data bz2Data = file::readBz2("Matthew-5.txt.bz2");
+        reader::Data plainData = reader::read("Matthew-5.txt");
+        reader::Data bz2Data = reader::readBz2("Matthew-5.txt.bz2");
         if (plainData.size == bz2Data.size) {
             for (std::size_t i = 0; i < plainData.size; ++i) {
                 if (plainData.uniquePtr.get()[i] != bz2Data.uniquePtr.get()[i]) {

@@ -1,6 +1,6 @@
-# file
+# reader
 
-`file` is a C++ library for reading plain and bzip2 file data (using libbz2).
+`reader` is a C++ library for reading plain and bzip2 files (using libbz2).
 
 
 # Requirements
@@ -11,7 +11,7 @@
 
 # Build
 
-Grab the `dependecies/exception/include/exception` directory and all the source files (*.hpp and *.cpp) in the `lib/file` directory and build (there is no preprocessor configuration for the library).
+Grab the `dependecies/exception/include/exception` directory and all the source files (*.hpp and *.cpp) in the `lib/reader` directory and build (there is no preprocessor configuration for the library).
 
 Alternatively, build and install the library with:
 
@@ -22,11 +22,11 @@ Alternatively, build and install the library with:
 # Usage
 
 ```cpp
-#include <file/file.hpp>
+#include <reader/reader.hpp>
 
 int main() {
-    file::Data plainData = file::read("Matthew-5.txt");
-    file::Data bz2Data = file::readBz2("Matthew-5.txt.bz2");
+    reader::Data plainData = reader::read("Matthew-5.txt");
+    reader::Data bz2Data = reader::readBz2("Matthew-5.txt.bz2");
     for (std::size_t i = 0; i < plainData.size; ++i) {
         if (plainData.uniquePtr.get()[i] != bz2Data.uniquePtr.get()[i]) {
             std::cerr << "unexpected different values" << std::endl;
@@ -46,7 +46,7 @@ See [example](sample/bz2/main.cpp).
 # API
 
 ```cpp
-struct file::Data {
+struct reader::Data {
     std::unique_ptr<char[]> uniquePtr;
     std::size_t size;
 };
@@ -56,7 +56,7 @@ struct file::Data {
 Read binary `fileName`.
 
 ```cpp
-file::Data file::read(std::string_view fileName);
+reader::Data reader::read(std::string_view fileName);
 ```
 
 
@@ -64,24 +64,24 @@ Read and decompress bzip2 `fileName`.
 `decompressRatioHint` sets the initial read buffer size: (`file size`) * `decompressRatioHint`.
 
 ```cpp
-file::Data file::readBz2(const char *fileName, unsigned decompressRatioHint = 7);
+reader::Data reader::readBz2(const char *fileName, unsigned decompressRatioHint = 7);
 ```
 
 
 # Source
 
-`file`'s Git repository is available on GitHub, which can be browsed at:
+`reader`'s Git repository is available on GitHub, which can be browsed at:
 
-    http://github.com/aphenriques/file
+    http://github.com/aphenriques/reader
 
 and cloned with:
 
-    git clone --recurse-submodules git://github.com/aphenriques/file.git
+    git clone --recurse-submodules git://github.com/aphenriques/reader.git
 
 
 # Author
 
-`file` was made by André Pereira Henriques [aphenriques (at) outlook (dot) com].
+`reader` was made by André Pereira Henriques [aphenriques (at) outlook (dot) com].
 
 
 # Donation

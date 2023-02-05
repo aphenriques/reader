@@ -1,23 +1,23 @@
-FILE_ROOT_DIR:=../..
+READER_ROOT_DIR:=../..
 
-include $(FILE_ROOT_DIR)/common.mk
+include $(READER_ROOT_DIR)/common.mk
 
 SRC_DIRS:=. $(wildcard */.)
 FILTER_OUT:=
 INCLUDE_DIRS:=
-SYSTEM_INCLUDE_DIRS:=$(FILE_SYSTEM_INCLUDE_DIRS)
-LIB_DIRS:=$(FILE_LIB_DIRS)
-LDLIBS:=$(FILE_LDLIBS)
+SYSTEM_INCLUDE_DIRS:=$(READER_SYSTEM_INCLUDE_DIRS)
+LIB_DIRS:=$(READER_LIB_DIRS)
+LDLIBS:=$(READER_LDLIBS)
 
 # '-isystem <dir>' supress warnings from included headers in <dir>. These headers are also excluded from dependency generation
-CXXFLAGS:=$(FILE_CXXFLAGS) $(addprefix -I, $(INCLUDE_DIRS)) $(addprefix -isystem , $(SYSTEM_INCLUDE_DIRS))
-LDFLAGS:=$(FILE_SHARED_LDFLAGS) $(addprefix -L, $(LIB_DIRS))
+CXXFLAGS:=$(READER_CXXFLAGS) $(addprefix -I, $(INCLUDE_DIRS)) $(addprefix -isystem , $(SYSTEM_INCLUDE_DIRS))
+LDFLAGS:=$(READER_SHARED_LDFLAGS) $(addprefix -L, $(LIB_DIRS))
 ARFLAGS:=rcs
 
 ################################################################################
 
-STATIC_LIB:=$(FILE_STATIC_LIB)
-SHARED_LIB:=$(FILE_SHARED_LIB)
+STATIC_LIB:=$(READER_STATIC_LIB)
+SHARED_LIB:=$(READER_SHARED_LIB)
 
 SRC_DIRS:=$(subst /.,,$(SRC_DIRS))
 SRCS:=$(filter-out $(FILTER_OUT), $(wildcard $(addsuffix /*.cpp, $(SRC_DIRS))))

@@ -1,6 +1,6 @@
-FILE_ROOT_DIR:=..
+READER_ROOT_DIR:=..
 
-include $(FILE_ROOT_DIR)/common.mk
+include $(READER_ROOT_DIR)/common.mk
 
 # http://stackoverflow.com/a/11206700
 
@@ -21,4 +21,4 @@ $(SUBDIRS_TARGETS):
 $(addsuffix all,$(SUBDIRS)): lib
 
 lib:
-	cd $(FILE_ROOT_DIR)/$(FILE_LIB_DIR) && $(MAKE) static
+	cd $(READER_ROOT_DIR)/$(READER_LIB_DIR) && $(MAKE) static

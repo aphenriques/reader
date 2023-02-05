@@ -1,9 +1,9 @@
-#ifndef file_Data_hpp
-#define file_Data_hpp
+#ifndef reader_Data_hpp
+#define reader_Data_hpp
 
 #include <memory>
 
-namespace file {
+namespace reader {
     struct Data {
         std::unique_ptr<char[]> uniquePtr;
         std::size_t size;

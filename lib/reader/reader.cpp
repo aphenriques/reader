@@ -1,4 +1,4 @@
-#include "file.hpp"
+#include "reader.hpp"
 #include <cstdio>
 #include <cstring>
 #include <exception>
@@ -8,7 +8,7 @@
 #include <vector>
 #include <exception/Exception.hpp>
 
-namespace file {
+namespace reader {
     Data read(std::string_view fileName) {
         try {
             const auto fileSize = std::filesystem::file_size(fileName);
