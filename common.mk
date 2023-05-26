@@ -57,4 +57,4 @@ READER_EXECUTABLE_LDFLAGS:=$(READER_COMMON_LDFLAGS)
 
 READER_SYSTEM_INCLUDE_DIRS:=$(READER_EXCEPTION_INCLUDE_DIR) /usr/local/include
 READER_LIB_DIRS:=/usr/local/lib
-READER_LDLIBS:=-lboost_iostreams -lbz2 -lz -lboost_timer -lboost_chrono -lthread
+READER_LDLIBS:=-lbz2 -lz
