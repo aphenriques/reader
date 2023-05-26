@@ -25,7 +25,7 @@ endif
 
 ifeq ($(SANITIZED), y)
 ifneq ($(OPTIMIZED), y)
-SANITIZE_FLAGS:=-fsanitize=address -fno-omit-frame-pointer -fno-common
+SANITIZE_FLAGS:=-fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined
 else
 $(error Cannot have SANITIZED=y and OPTIMIZED=y)
 endif
@@ -49,7 +49,7 @@ endif
 
 READER_SHARED_LIB:=lib$(READER).$(SHARED_LIB_EXTENSION)
 
-READER_CXXFLAGS:=$(EXTRA_CXXFLAGS) -std=c++2a -Werror -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic $(OPTIMIZATION_FLAGS) $(SANITIZE_FLAGS) $(FPIC_FLAG) $(PTHREAD_FLAG)
+READER_CXXFLAGS:=$(EXTRA_CXXFLAGS) -std=c++2b -Werror -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic $(OPTIMIZATION_FLAGS) $(SANITIZE_FLAGS) $(FPIC_FLAG) $(PTHREAD_FLAG)
 
 READER_COMMON_LDFLAGS:=$(EXTRA_LDFLAGS) $(OPTIMIZATION_FLAGS) $(SANITIZE_FLAGS) $(PTHREAD_FLAG)
 READER_SHARED_LDFLAGS:=$(READER_COMMON_LDFLAGS) -shared
